@@ -43,17 +43,22 @@
                     <td>Nombre</td>
                     <td>Semestre</td>
                     <td>Estado</td>
-                    <td>Profesor<td>
+                    <td>Profesor</td>
                 </tr>
             <?php
 
-                $sql = "SELECT name,   FROM usuarios";
+                $sql = "SELECT id_taller from estudiantes_cursan where id_estudiante = ".$_SESSION['rol'];
                 $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
                 if ($result->num_rows > 0) {
                 // output data of each row
-                while($rows=  mysqli_fetch_array($result)){
-                    echo "<tr><td>".$rows[0]."</td>";
-                    echo "<td>".$rows[1]."</td>";
+                while($rows= mysqli_fetch_array($result)){
+                    $zql = "SELECT name, semestre, estado, profesor from taller_libre where id_taller = ".$rows[0] ;
+|                   $cosa = $conn->query($zql) or die("Falló la consulta" .$conn->error);
+                    $rez = mysqli_fetch_array($cosa);
+                    echo "<tr><td>".$rez[0]."</td>";
+                    echo "<td>".$rez[1]."</td>";
+                    echo "<td>".$rez[2]."</td>";
+                    echo "<td>".$rez[3]."</td>";
                     }
                 }
                 else {
@@ -62,15 +67,6 @@
                 $conn->close();
             ?>
         </table>
-			<form action="registroPersona.php" method="POST">
-            Rol (sin guion):<br>
-            <input type="text" name="Rol"><br>
-            Nombre:<br>
-            <input type="text" name="Nombre"><br>
-            Contraseña:<br>
-            <input type="text" name="Contraseña"><br>
-            <input type="submit" value="Ingresar">
-          </form>
         </div>
       </body>
 </html>
