@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-07-2017 a las 05:03:23
+-- Tiempo de generación: 02-07-2017 a las 17:53:00
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -289,7 +289,6 @@ CREATE TABLE `taller_libre` (
   `NAME` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 -- --------------------------------------------------------
 
 --
@@ -450,32 +449,10 @@ ALTER TABLE `taller_libre`
   ADD KEY `TALLER_LIBRE_FK` (`ID_EPRO`,`ID_PRO`);
 
 --
--- Indices de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`ID_USUARIO`,`ID_ESTUDIANTE`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`,`id_estudiante`);
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `programa`
---
-ALTER TABLE `programa`
-  ADD CONSTRAINT `PROGRAMA_FK` FOREIGN KEY (`CREDITOS`) REFERENCES `horas_semanales` (`CREDITOS`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `taller_libre`
---
-ALTER TABLE `taller_libre`
-  ADD CONSTRAINT `TALLER_LIBRE_FK` FOREIGN KEY (`ID_EPRO`,`ID_PRO`) REFERENCES `estudiantes_proponentes` (`ID_EPRO`, `ID_PRO`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
