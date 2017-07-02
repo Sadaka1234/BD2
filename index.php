@@ -9,7 +9,7 @@
           <ul id="menu">
             <li><a href="index.php">Pagina Principal</a></li>
             <li><a href="login.php">LogIn</a></li>
-            <li><a href="persona.php">Registrate aqui!</a></li>
+            <li><a href="registrarse.php">Registrate aqui!</a></li>
           </ul>
         </div>
       </body>
