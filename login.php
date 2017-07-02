@@ -41,7 +41,8 @@
      }
 if (!$error){
   $res=mysqli_query($conn,"SELECT id_usuario, nombre, password FROM usuarios WHERE id_usuario='$rol' and password ='$pass'");
-  if($res) {
+ $count = mysqli_num_rows($res);
+  if($count != 0) {
    $_SESSION['user'] = $row['id_usuario'];
    $_SESSION['rol'] = $rol;
    header("Location: loged.php");
