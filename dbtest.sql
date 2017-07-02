@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-07-2017 a las 17:53:00
+-- Tiempo de generación: 02-07-2017 a las 19:40:06
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -279,12 +279,11 @@ CREATE TABLE `sesion` (
 CREATE TABLE `taller_libre` (
   `ID_EPRO` int(11) NOT NULL,
   `ID_TALLER` int(11) NOT NULL,
-  `ID_ENCUESTA` int(11) NOT NULL,
-  `ID_PRO` int(11) NOT NULL,
-  `ID_ESTUDIANTE` int(11) NOT NULL,
+  `SEMESTRE` int(11) NOT NULL,
+  `ID_PROGRAMA` int(11) NOT NULL,
   `INSCRITOS` int(11) NOT NULL,
   `ESTADO` int(11) NOT NULL,
-  `MOTIVO` int(11) NOT NULL,
+  `MOTIVO` varchar(200) NOT NULL,
   `PROFESOR` varchar(45) NOT NULL,
   `NAME` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -308,7 +307,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_estudiante`, `privilegio`, `nombre`, `password`) VALUES
-(121212121, 121212121, 0, 'g', '121212121');
+(111111111, 111111111, 0, 'Gonzalo', '111111111'),
+(121212121, 121212121, 1, 'Marti', '121212121');
 
 --
 -- Índices para tablas volcadas
@@ -446,7 +446,7 @@ ALTER TABLE `sesion`
 --
 ALTER TABLE `taller_libre`
   ADD PRIMARY KEY (`ID_TALLER`),
-  ADD KEY `TALLER_LIBRE_FK` (`ID_EPRO`,`ID_PRO`);
+  ADD KEY `TALLER_LIBRE_FK` (`ID_EPRO`,`ID_PROGRAMA`);
 
 --
 -- Indices de la tabla `usuarios`

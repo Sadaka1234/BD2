@@ -9,9 +9,6 @@
           <ul id="menu">
             <li><a href="index.php">Inicio</a></li>
             <li><a href="login.php">LogIn</a></li>
-            <li><a href="clienteR.php">Nuevo Cliente</a></li>
-            <li><a href="vendedor.php">Nuevo Vendedor</a></li>
-            <li><a href="proyectador.php">Nuevo Proyectador</a></li>
           </ul>
         </div>
 
