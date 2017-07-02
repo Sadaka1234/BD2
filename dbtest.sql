@@ -289,19 +289,6 @@ CREATE TABLE `taller_libre` (
   `NAME` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuario`
---
-
-CREATE TABLE `usuario` (
-  `ID_USUARIO` int(11) NOT NULL,
-  `NAME` varchar(45) NOT NULL,
-  `CONTRASEÑA` varchar(45) NOT NULL,
-  `PRIVILEGIO` int(11) NOT NULL,
-  `ID_ESTUDIANTE` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
