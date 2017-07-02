@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-07-2017 a las 19:40:06
+-- Tiempo de generación: 02-07-2017 a las 23:08:23
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -97,13 +97,13 @@ CREATE TABLE `estudiantes` (
 --
 
 CREATE TABLE `estudiantes_cursan` (
-  `ID_ASIGNATURA` int(11) NOT NULL,
   `ID_ESTUDIANTE` int(11) NOT NULL,
   `SEMESTRE` int(11) NOT NULL,
   `ID_TALLER` int(11) NOT NULL,
   `IS_CONVALIDADO` int(11) NOT NULL,
   `ASISTENCIA` int(11) NOT NULL,
-  `NOTAS` int(11) NOT NULL
+  `NOTAS` int(11) NOT NULL,
+  `aceptado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -116,6 +116,13 @@ CREATE TABLE `estudiantes_proponentes` (
   `ID_EPRO` int(11) NOT NULL,
   `ID_PRO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estudiantes_proponentes`
+--
+
+INSERT INTO `estudiantes_proponentes` (`ID_EPRO`, `ID_PRO`) VALUES
+(0, 0);
 
 -- --------------------------------------------------------
 
@@ -288,6 +295,13 @@ CREATE TABLE `taller_libre` (
   `NAME` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `taller_libre`
+--
+
+INSERT INTO `taller_libre` (`ID_EPRO`, `ID_TALLER`, `SEMESTRE`, `ID_PROGRAMA`, `INSCRITOS`, `ESTADO`, `MOTIVO`, `PROFESOR`, `NAME`) VALUES
+(0, 0, 12017, 0, 0, 1, 'Sirve', 'Lobos', 'Suicidio colectivo');
+
 -- --------------------------------------------------------
 
 --
@@ -354,7 +368,7 @@ ALTER TABLE `estudiantes`
 -- Indices de la tabla `estudiantes_cursan`
 --
 ALTER TABLE `estudiantes_cursan`
-  ADD PRIMARY KEY (`ID_TALLER`,`ID_ESTUDIANTE`);
+  ADD PRIMARY KEY (`ID_ESTUDIANTE`,`SEMESTRE`,`ID_TALLER`);
 
 --
 -- Indices de la tabla `estudiantes_proponentes`
