@@ -36,13 +36,19 @@
 
         <div class="contenido">
           <li><?php echo "Hola ".$userRow['nombre'].". Que quieres?";  ?></li>
-			<form action="postulacion.php" method="POST">
+			      <form action="postulacion.php" method="POST">
             <input type="submit" value="Realizar postulación a asignatura">
-          </form>
+           </form>
 
-		  <form action="verpostulacion.php" method="POST">
+		        <form action="verpostulacion.php" method="POST">
             <input type="submit" value="Ver mis postulaciones">
-          </form>
+            </form>
+
+            <form action="verpostaceptadas.php" method="POST">
+            <input type="submit" value="Ver mis postulaciones aceptadas">
+            </form>
+
+
         </div>
       </body>
 </html>
