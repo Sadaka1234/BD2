@@ -6,3 +6,4 @@ Realizamos las siguientes modificaciones:
 	- los talleres aceptados tienen la variable estado = 1, los rechazados estado = 2, y los pendientes estado = 0
 	-Jefe de Carrera: ingresa con el usuario 121212121 ; 121212121 (todos los usuarios de prueba tienen el mismo usuario que contraseña por facilidad de prueba nada mas)
 -Taller aceptado: estado = 1; Taller rechazado: estado = 2; Pendiente: Taller = 0
+-Se asume que el que postula el ramo será el que lo enseñe (sera el profesor)

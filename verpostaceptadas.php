@@ -48,7 +48,7 @@
                 </tr>
             <?php
 
-                $sql = "SELECT name, semestre, estado, profesor from taller_libre where estado = 1 and id_epro = ".$_SESSION['rol'];
+                $sql = "SELECT name, semestre, estado, profesor from taller_libre where estado = 1";
                 $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
                 if ($result->num_rows > 0) {
                 // output data of each row

@@ -45,7 +45,7 @@
             </form>
 
             <form action="verpostaceptadas.php" method="POST">
-            <input type="submit" value="Ver mis postulaciones aceptadas">
+            <input type="submit" value="Ver postulaciones aceptadas de todos los usuarios">
             </form>
 
             <?php
