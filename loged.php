@@ -49,7 +49,7 @@
             </form>
 
             <?php
-            if ($userrow['privilegio']==1){
+            if ($userRow['privilegio']==1){
               ?>
               <form action="nuevaspostulaciones.php" method="POST">
               <input type="submit" value="Postulaciones pendientes">
