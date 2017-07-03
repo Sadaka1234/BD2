@@ -30,7 +30,7 @@ $TALL = ($_POST['IDTALL']);
     $count = mysqli_num_rows($res);
   }
   if(!empty($count) and $TALL != 9999) {
-    $_SESSION['tall'] = $TALL;
+    $_SESSION['IDTALLER'] = $TALL;
     header("Location: registroPostula.php");
   } else {
    echo "ese taller no existe";
@@ -86,7 +86,7 @@ $TALL = ($_POST['IDTALL']);
       </table>
 			<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
             ID Taller a registrar:<br>
-            <input type="int" name="IDTALL"><br>
+            <input type="text" name="IDTALL"><br>
             <input type="submit" value="Ingresar">
           </form>
         </div>

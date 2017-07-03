@@ -38,11 +38,11 @@
             $rows=  mysqli_fetch_array($result);
 
             $res =mysqli_query($conn,"SELECT id_taller, semestre, inscritos FROM taller_libre WHERE id_taller = $TALL");
-            $rows =  mysqli_fetch_array($res);
+            $ro =  mysqli_fetch_array($res);
 
             $a = $userRow[0];
-            $b = $rows[1];
-            $c = $rows[0];
+            $b = $ro[1];
+            $c = $ro[0];
 
             $sql = "INSERT INTO estudiantes_cursan VALUES('$a', '$b', '$c',0,0,0,0)";
             $result = $conn->query($sql) or die("Ese taller ya está inscrito, sabandija");
@@ -51,3 +51,4 @@
         </div>
       </body>
 </html>
+<?php ob_end_flush(); ?>

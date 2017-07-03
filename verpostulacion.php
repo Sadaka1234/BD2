@@ -32,7 +32,7 @@
       <body>
         <div class ="menu">
           <ul id="menu">
-            <li><a href="index.php">Inicio</a></li>
+            <li><a href="index.php">Logout</a></li>
             <li><a href="loged.php">Volver</a></li>
           </ul>
         </div>
