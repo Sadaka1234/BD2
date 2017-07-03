@@ -57,7 +57,7 @@ if (!$error){
 <head>
 <meta charset="utf-8">
 <title>Portal Talleres USM</title>
-<link href="diseño.css" rel="stylesheet"/>
+<link href="diseno.css" rel="stylesheet"/>
 </head>
 <body>
   <div class ="menu">
@@ -125,7 +125,7 @@ if (!$error){
   <head>
     <meta charset="utf-8">
     <title>Portal Talleres USM</title>
-    <link href="diseño.css" rel="stylesheet"/>
+    <link href="diseno.css" rel="stylesheet"/>
       <body>
         <div class ="menu">
           <ul id="menu">
