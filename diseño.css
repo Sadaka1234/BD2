@@ -5,15 +5,15 @@
   align-items: center;
   padding-right: 25px;
   padding-left: 25px;
- 
+
   border-radius: 15px;
   background-image: url("banner.png")
 }
 
 body {
   background-color: gray;
-  background-image: url("pasteleria-santo-tome.jpg");
-      
+  background-image: url("DI.jpg");
+
 }
 
 .menu{
@@ -22,9 +22,9 @@ body {
   padding-right: 25px;
   padding-left: 25px;
   border-top-style: outset;
-  
+
   border-bottom-style: outset;
-  
+
   background-color: white;
   border-radius: 15px;
 }
@@ -77,7 +77,7 @@ td{
   	padding-right: 25px;
   	padding-left: 25px;
   	border-top-style: outset;
-  	
+
   	height: 120%;
   	border-top-color: gray;
   	border-right-color: gray;
@@ -89,6 +89,6 @@ td{
     color: black;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     background-image: url("Especial_7.png");
-    
-    
+
+
 }
