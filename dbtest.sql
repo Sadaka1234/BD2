@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-07-2017 a las 05:51:12
+-- Tiempo de generación: 03-07-2017 a las 07:55:10
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -300,8 +300,10 @@ CREATE TABLE `taller_libre` (
 --
 
 INSERT INTO `taller_libre` (`ID_EPRO`, `ID_TALLER`, `SEMESTRE`, `ID_PROGRAMA`, `INSCRITOS`, `ESTADO`, `MOTIVO`, `PROFESOR`, `NAME`) VALUES
-(0, 0, 12017, 0, 0, 1, 'Sirve', 'Lobos', 'Suicidio colectivo'),
-(1, 1, 12017, 1, 0, 0, 'Puede servir', 'Arroyuelo', 'Como tomarse la U sin que tu madre se entere');
+(111111111, 22, 12014, 22, 0, 0, 'Aun no evaluado', 'Gonzalo', 'Como encontrar una Pera en la USM'),
+(111111111, 123, 12014, 123, 0, 1, 'Aun no evaluado', 'Gonzalo', 'Taller de suicido colectivo'),
+(111111111, 4123, 12017, 4123, 0, 1, 'Aun no evaluado', 'Gonzalo', 'Como Tomarte la U sin que tu madre se entere'),
+(111111111, 41234123, 12017, 41234123, 0, 0, 'Aun no evaluado', 'Gonzalo', 'Paperas con Mendoza');
 
 -- --------------------------------------------------------
 
