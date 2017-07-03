@@ -43,9 +43,9 @@
             $a = $userRow[0];
             $b = $rows[1];
             $c = $rows[0];
-            
+
             $sql = "INSERT INTO estudiantes_cursan VALUES('$a', '$b', '$c',0,0,0,0)";
-            $result = $conn->query($sql) or die("ERROR PI: Mami que sera lo que quiere el negro.  SQL ERROR: " . $conn->error);
+            $result = $conn->query($sql) or die("Ese taller ya está inscrito, sabandija");
             echo "Agregado con exito";
           ?>
         </div>
