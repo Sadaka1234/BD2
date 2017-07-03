@@ -18,7 +18,7 @@
  // select loggedin users detail
  $res=mysqli_query($conn, "SELECT * FROM usuarios WHERE id_usuario =".$_SESSION['rol']);
  $userRow=mysqli_fetch_array($res);
- 
+
 ?>
 
 <!DOCTYPE html>

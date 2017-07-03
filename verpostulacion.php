@@ -51,14 +51,15 @@
                 $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
                 if ($result->num_rows > 0) {
                 // output data of each row
-                while($rows= mysqli_fetch_array($result)){                    $zql = "SELECT name, semestre, estado, profesor from taller_libre where id_taller = ".$rows[0] ;
+                while($rows= mysqli_fetch_array($result)){
+                    $zql = "SELECT name, semestre, estado, profesor from taller_libre where id_taller = ".$rows[0] ;
                    $cosa = $conn->query($zql) or die("Falló la consulta" .$conn->error);
                     $rez = mysqli_fetch_array($cosa);
                     echo "<tr><td>".$rez[0]."</td>";
                     echo "<td>".$rez[1]."</td>";
                     echo "<td>".$rez[2]."</td>";
                     echo "<td>".$rez[3]."</td>";
-    
+
                     }
                 }
                 else {
