@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 03-07-2017 a las 03:14:05
+-- Tiempo de generación: 03-07-2017 a las 05:51:12
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -105,13 +105,6 @@ CREATE TABLE `estudiantes_cursan` (
   `NOTAS` int(11) NOT NULL,
   `aceptado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `estudiantes_cursan`
---
-
-INSERT INTO `estudiantes_cursan` (`ID_ESTUDIANTE`, `SEMESTRE`, `ID_TALLER`, `IS_CONVALIDADO`, `ASISTENCIA`, `NOTAS`, `aceptado`) VALUES
-(111111111, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -307,7 +300,8 @@ CREATE TABLE `taller_libre` (
 --
 
 INSERT INTO `taller_libre` (`ID_EPRO`, `ID_TALLER`, `SEMESTRE`, `ID_PROGRAMA`, `INSCRITOS`, `ESTADO`, `MOTIVO`, `PROFESOR`, `NAME`) VALUES
-(0, 0, 12017, 0, 0, 1, 'Sirve', 'Lobos', 'Suicidio colectivo');
+(0, 0, 12017, 0, 0, 1, 'Sirve', 'Lobos', 'Suicidio colectivo'),
+(1, 1, 12017, 1, 0, 0, 'Puede servir', 'Arroyuelo', 'Como tomarse la U sin que tu madre se entere');
 
 -- --------------------------------------------------------
 
@@ -329,7 +323,9 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id_usuario`, `id_estudiante`, `privilegio`, `nombre`, `password`) VALUES
 (111111111, 111111111, 0, 'Gonzalo', '111111111'),
-(121212121, 121212121, 1, 'Marti', '121212121');
+(121212121, 121212121, 1, 'Marti', '121212121'),
+(222222222, 222222222, 0, 'Paltiman', '222222222'),
+(333333333, 333333333, 0, 'Alfonso', '333333333');
 
 --
 -- Índices para tablas volcadas
