@@ -58,7 +58,7 @@
                     echo "<td>".$rez[1]."</td>";
                     echo "<td>".$rez[2]."</td>";
                     echo "<td>".$rez[3]."</td>";
-                    echo "<li><a href="Asignatura.php">Detalles</a></li>";
+    
                     }
                 }
                 else {
