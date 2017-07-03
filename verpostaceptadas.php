@@ -40,6 +40,7 @@
         <div class="contenido">
             <table>
                 <tr>
+                    <li>Taller aceptado: estado = 1; Taller rechazado: estado = 2; Pendiente: estado = 0</li>
                     <td>Nombre</td>
                     <td>Semestre</td>
                     <td>Estado</td>
@@ -47,18 +48,16 @@
                 </tr>
             <?php
 
-                $sql = "SELECT id_taller from estudiantes_cursan where id_estudiante = ".$_SESSION['rol'];
+                $sql = "SELECT name, semestre, estado, profesor from taller_libre where estado = 1 and id_epro = ".$_SESSION['rol'];
                 $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
                 if ($result->num_rows > 0) {
                 // output data of each row
                 while($rows= mysqli_fetch_array($result)){
-                    $zql = "SELECT name, semestre, estado, profesor from taller_libre where estado = 1 and id_taller = ".$rows[0];
-                    $cosa = $conn->query($zql) or die("Falló la consulta" .$conn->error);
-                    $rez = mysqli_fetch_array($cosa);
-                    echo "<tr><td>".$rez[0]."</td>";
-                    echo "<td>".$rez[1]."</td>";
-                    echo "<td>".$rez[2]."</td>";
-                    echo "<td>".$rez[3]."</td>";
+
+                    echo "<tr><td>".$rows[0]."</td>";
+                    echo "<td>".$rows[1]."</td>";
+                    echo "<td>".$rows[2]."</td>";
+                    echo "<td>".$rows[3]."</td>";
                     }
                 }
 
