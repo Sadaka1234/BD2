@@ -1,30 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -35,7 +8,7 @@
         <div class ="menu">
           <ul id="menu">
             <li><a href="index.php">Logout</a></li>
-            <li><a href="login.php">Volver</a></li>
+            <li><a href="loged.php">Volver</a></li>
           </ul>
         </div>
 
@@ -47,51 +20,33 @@
             $dbname = "dbtest";
 
             $conn = new mysqli($servername,$username,$password,$dbname);
-            ob_start();
-            session_start();
+
             if ($conn -> connect_error){
                 die ("Fallo la conexion". $conn->connect_error);
             }
+            ob_start();
+            session_start();
 
             $TALL = $_SESSION['IDTALLER'];
             $rol = $_SESSION['rol'];
 
+            $res=mysqli_query($conn, "SELECT * FROM usuarios WHERE id_usuario =".$_SESSION['rol']);
+            $userRow=mysqli_fetch_array($res);
 
             $sql = "SELECT id_taller, semestre FROM taller_libre where id_taller = ".$TALL;
             $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
             $rows=  mysqli_fetch_array($result);
 
+            $res =mysqli_query($conn,"SELECT id_taller, semestre, inscritos FROM taller_libre WHERE id_taller = $TALL");
+            $rows =  mysqli_fetch_array($res);
 
-            if($TALL == NULL or !preg_match("/^[0-9]+$/", $TALL or $result->num_rows == 0) ){
-              $_SESSION['IDTALLER'] = (INT)$_POST['IDTALL'];
-
-                if($TALL == NULL){
-                   echo "Debes ingresar un numero<br>";
-                }
-				    if (!preg_match("/^[0-9]+$/", $TALL)){
-                    echo "Los ids solo tienen numeros<br>";
-                }
-                if($result->num_rows == 0){
-                  echo "Codigo de taller ingresado no existe";
-                }
-
-          ?>
-                <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
-		            ID Taller a registrar:<br>
-		            <input type="text" name="IDTALL"><br>
-		            <input type="submit" value="Ingresar">
-                </form>
-        <?php
-            }
-
-            else{
-
-                $sql = "INSERT INTO estudiantes_cursan VALUES(".$rol.",".$rows[1].",".$rows[0].", 0,0,0,0)";
-                $result = $conn->query($sql) or die("ERROR PI: Mami que ser� lo que quiere el negro.  SQL ERROR: " . $conn->error);
-                $conn->close();
-                echo "Postulacion a taller realizada con exito";
-
-            }
+            $a = $userRow[0];
+            $b = $rows[1];
+            $c = $rows[0];
+            
+            $sql = "INSERT INTO estudiantes_cursan VALUES('$a', '$b', '$c',0,0,0,0)";
+            $result = $conn->query($sql) or die("ERROR PI: Mami que sera lo que quiere el negro.  SQL ERROR: " . $conn->error);
+            echo "Agregado con exito";
           ?>
         </div>
       </body>

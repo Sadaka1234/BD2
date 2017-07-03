@@ -1,28 +1,39 @@
 <?php
 
+$servername = "localhost";
+$username = "root";
+$password = "localhost";
+$dbname = "dbtest";
 
-
-$TALL = trim($_POST['IDTALL']);
-$TALL = strip_tags($TALL);
-$TALL = htmlspecialchars($TALL);
-
-if(empty($TALL)){
- $error = true;
- echo "Por favor ingresa algo";
+$conn = new mysqli($servername,$username,$password,$dbname);
+if ($conn -> connect_error){
+  die ("Fallo la conexión". $conn->connect_error);
 }
 
-if (!$error){
-  $res=mysqli_query($conn,"SELECT id_taller, semestre, inscritos FROM taller_libre WHERE taller_libre = $TALL");
-  $count = mysqli_num_rows($res);
-  if($count != 0) {
+ob_start();
+session_start();
 
-    $result = $conn->query($res) or die("ERROR PI: Mami que ser� lo que quiere el negro.  SQL ERROR: " . $conn->error);
-    $rows=  mysqli_fetch_array($result);
-    $sql = "INSERT INTO estudiantes_cursan VALUES(".$rol.",".$rows[1].",".$rows[0].", ".($rows[3] + 1).",0,0,0)";
-   header("Location: loged.php");
+if ( isset($_SESSION['user'])!="" ) {
+ header("Location: index.php");
+ exit;
+}
+
+$res=mysqli_query($conn, "SELECT * FROM usuarios WHERE id_usuario =".$_SESSION['rol']);
+$userRow=mysqli_fetch_array($res);
+
+$rol = $userRow[0];
+$TALL = 9999;
+$TALL = ($_POST['IDTALL']);
+
+  $res = mysqli_query($conn,"SELECT id_taller, semestre, inscritos FROM taller_libre WHERE id_taller = $TALL");
+  if ($res){
+    $count = mysqli_num_rows($res);
+  }
+  if(!empty($count) and $TALL != 9999) {
+    $_SESSION['tall'] = $TALL;
+    header("Location: registroPostula.php");
   } else {
    echo "ese taller no existe";
-  }
   }
  ?>
 
@@ -42,7 +53,7 @@ if (!$error){
         <div class ="menu">
           <ul id="menu">
             <li><a href="index.php">Logout</a></li>
-            <li><a href="login.php">Volver</a></li>
+            <li><a href="loged.php">Volver</a></li>
           </ul>
         </div>
 
@@ -55,17 +66,6 @@ if (!$error){
                     <td>Inscritos</td>
                 </tr>
             <?php
-                session_start();
-                ob_start();
-                $servername = "localhost";
-                $username = "root";
-                $password = "localhost";
-                $dbname = "dbtest";
-
-                $conn = new mysqli($servername,$username,$password,$dbname);
-                if ($conn -> connect_error){
-                  die ("Fallo la conexión". $conn->connect_error);
-                }
 
                 $sql = "SELECT id_taller, name, semestre, inscritos FROM taller_libre";
                 $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
@@ -84,7 +84,7 @@ if (!$error){
                 $conn->close();
             ?>
       </table>
-			<form action="login.php" method="POST">
+			<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
             ID Taller a registrar:<br>
             <input type="int" name="IDTALL"><br>
             <input type="submit" value="Ingresar">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 02-07-2017 a las 23:08:23
+-- Tiempo de generación: 03-07-2017 a las 03:14:05
 -- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
@@ -105,6 +105,13 @@ CREATE TABLE `estudiantes_cursan` (
   `NOTAS` int(11) NOT NULL,
   `aceptado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `estudiantes_cursan`
+--
+
+INSERT INTO `estudiantes_cursan` (`ID_ESTUDIANTE`, `SEMESTRE`, `ID_TALLER`, `IS_CONVALIDADO`, `ASISTENCIA`, `NOTAS`, `aceptado`) VALUES
+(111111111, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
