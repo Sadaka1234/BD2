@@ -22,18 +22,18 @@ $res=mysqli_query($conn, "SELECT * FROM usuarios WHERE id_usuario =".$_SESSION['
 $userRow=mysqli_fetch_array($res);
 
 $rol = $userRow[0];
-$TALL = 9999;
-$TALL = ($_POST['IDTALL']);
 
-  $res = mysqli_query($conn,"SELECT id_taller, semestre, inscritos FROM taller_libre WHERE id_taller = $TALL");
-  if ($res){
-    $count = mysqli_num_rows($res);
-  }
-  if(!empty($count) and $TALL != 9999) {
-    $_SESSION['IDTALLER'] = $TALL;
+$TALL = ($_POST['IDTALL']);
+$NOMBRE = ($_POST['NOMBRETALL']);
+$SEMESTRE = ($_POST['SEMESTRETALL']);
+  $res = mysqli_query($conn,"SELECT id_taller, semestre FROM taller_libre WHERE id_taller = $TALL and SEMESTRE = $SEMESTRE and nombre = $NOMBRE");
+  if(!$res and isset($TALL)) {
+    $_SESSION['IDTALL'] = $TALL;
+    $_SESSION['NOMBRETALL'] = $NOMBRE;
+    $_SESSION['SEMESTRETALL'] = $SEMESTRE;
     header("Location: registroPostula.php");
   } else {
-   echo "ese taller no existe";
+   echo "ese taller ya existe";
   }
  ?>
 
@@ -85,9 +85,21 @@ $TALL = ($_POST['IDTALL']);
             ?>
       </table>
 			<form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
-            ID Taller a registrar:<br>
-            <input type="text" name="IDTALL"><br>
+             ID Taller a registrar:<br>
+             <input type="text" name="IDTALL"><br>
+    <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
+              Nombre Taller:<br>
+              <input type="text" name="NOMBRETALL"><br>
+  <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
+              Semestre Taller:<br>
+              <input type="text" name="SEMESTRETALL"><br>
+
+
+
             <input type="submit" value="Ingresar">
+
+
+
           </form>
         </div>
       </body>

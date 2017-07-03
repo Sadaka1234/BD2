@@ -4,3 +4,6 @@ Realizamos las siguientes modificaciones:
 	-hay un pequeño bug visual al entrar a la ventana de login (las barras se desplazaron), pero no influyen en el funcionamiento de el programa.
 	- Caso1, caso2, caso3 fueron realizados y funcionan bien.
 	-Como ver si un alumno es aceptado en un taller: 0 = en revision, 1 = aceptado, 2 = rechazado (entidad= estudiantes_cursan)
+ - los talleres aceptados tienen la variable estado = 1, los rechazados estado = 2, y los pendientes estado = 0
+	-Jefe de Carrera: ingresa con el usuario 121212121 ; 121212121 (todos los usuarios de prueba tienen el mismo usuario que contraseña por facilidad de prueba nada mas)
+Taller aceptado: estado = 1; Taller rechazado: estado = 2; Pendiente: Taller = 0

@@ -48,6 +48,21 @@
             <input type="submit" value="Ver mis postulaciones aceptadas">
             </form>
 
+            <?php
+            if ($userrow['privilegio']==1){
+              ?>
+              <form action="nuevaspostulaciones.php" method="POST">
+              <input type="submit" value="Postulaciones pendientes">
+              </form>
+
+              <form action="feedback.php" method="POST">
+              <input type="submit" value="Feedback">
+              </form>
+            <?php
+          }
+            ?>
+
+
 
         </div>
       </body>

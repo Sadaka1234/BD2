@@ -40,6 +40,7 @@
         <div class="contenido">
             <table>
                 <tr>
+                  <li>Taller aceptado: estado = 1; Taller rechazado: estado = 2; Pendiente: estado = 0</li>
                     <td>Nombre</td>
                     <td>Semestre</td>
                     <td>Estado</td>
@@ -47,7 +48,7 @@
                 </tr>
             <?php
 
-                $sql = "SELECT id_taller from estudiantes_cursan where id_estudiante = ".$_SESSION['rol'];
+                $sql = "SELECT id_taller from taller_libre where id_epro = ".$_SESSION['rol'];
                 $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
                 if ($result->num_rows > 0) {
                 // output data of each row

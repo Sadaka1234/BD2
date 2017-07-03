@@ -27,24 +27,16 @@
             ob_start();
             session_start();
 
-            $TALL = $_SESSION['IDTALLER'];
+            $TALL = $_SESSION['IDTALL'];
+            $NOMBRE = $_SESSION['NOMBRETALL'];
+            $SEMESTRE = $_SESSION['SEMESTRETALL'] ;
             $rol = $_SESSION['rol'];
 
             $res=mysqli_query($conn, "SELECT * FROM usuarios WHERE id_usuario =".$_SESSION['rol']);
             $userRow=mysqli_fetch_array($res);
+            $nombreU = $userRow['nombre'];
 
-            $sql = "SELECT id_taller, semestre FROM taller_libre where id_taller = ".$TALL;
-            $result = $conn->query($sql) or die("Falló la consulta" .$conn->error);
-            $rows=  mysqli_fetch_array($result);
-
-            $res =mysqli_query($conn,"SELECT id_taller, semestre, inscritos FROM taller_libre WHERE id_taller = $TALL");
-            $ro =  mysqli_fetch_array($res);
-
-            $a = $userRow[0];
-            $b = $ro[1];
-            $c = $ro[0];
-
-            $sql = "INSERT INTO estudiantes_cursan VALUES('$a', '$b', '$c',0,0,0,0)";
+            $sql = "INSERT INTO taller_libre VALUES('$rol', '$TALL', '$SEMESTRE','$TALL',0,0,'Aun no evaluado','$nombreU', '$NOMBRE')";
             $result = $conn->query($sql) or die("Ese taller ya está inscrito, sabandija");
             echo "Agregado con exito";
           ?>
